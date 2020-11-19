@@ -98,7 +98,7 @@ img {
   margin: 20px auto;
 }
 .modal {
-  display: block;
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -114,7 +114,7 @@ img {
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 40%;
 }
 
 .close {
