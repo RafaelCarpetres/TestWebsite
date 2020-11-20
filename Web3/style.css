@@ -33,9 +33,9 @@ html {
 .info-wrapper {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
-  height: 150px;
+  height: 500px;
 }
 
 li {
@@ -49,5 +49,6 @@ li {
 @media (max-width: 768px) {
   .info-wrapper {
     flex-direction: column;
+    align-items: center;
   }
 }
