@@ -1,25 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Intento Formulario Responsive</title>
-  </head>
-  <body>
-    <div class="content">
-      <h1 class="logo">Contacta <span>me</span></h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intento Formulario Responsive</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://kit.fontawesome.com/280ca38eec.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+
+<body>
+  <div class="content">
+    <h1 class="logo">Contacta <span>me</span></h1>
+  </div>
+  <div class="contact-wrapper">
+    <div class="contact-form">
+      <h3>Contactame</h3>
+      <form action="">
+        <p>
+          <label for="fullname">Full name </label>
+          <input type="text" name="fullname" id="fullname" />
+        </p>
+        <p>
+          <label for="emailadress">Email Adress </label>
+          <input type="email" name="emailadress" id="emailadress" />
+        </p>
+        <p>
+          <label for="phone">Phone Number</label>
+          <input type="tel" name="phone" id="phone" />
+        </p>
+        <p>
+          <label for="affair">Affair </label>
+          <input type="" name="affair" id="affair" />
+        </p>
+        <p class="block">
+          <label for="message">Message </label>
+          <textarea name="message" id="message" rows="3"></textarea>
+        </p>
+        <p class="block">
+          <button type="submit">Send</button>
+        </p>
+      </form>
     </div>
-    <div class="contact-wrapper">
-      <div class="contact-form">
-        <h3>Contactame</h3>
-        <form action="">
-          <p>
-            <label for="fullname">Full name </label>
-            <input type="text" name="fullname" id="fullname" />
-          </p>
-        </form>
-      </div>
-      <div class="contact-info"></div>
+    <div class="contact-info">
+      <h4>More Info</h4>
+      <ul>
+        <li><i class="fas fa-map-marker-alt"> Av SiempreViva</i></li>
+        <li><i class="fas fa-phone"> 111 111 111</i></li>
+        <li><i class="fas fa-envelope-open-text"> rafael@carpetres.cl </i></li>
+      </ul>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem
+        asperiores quia suscipit exercitationem dolore illo iure iste
+        accusamus necessitatibus quae.
+      </p>
+      <p>Company.com</p>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
