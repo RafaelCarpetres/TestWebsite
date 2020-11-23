@@ -5,15 +5,11 @@ $jsonText = '{
   "err" : null,
   "data": {
     "Titulo": "Phasmophobia - Fantasma Asesino",
-    "Desc": "Video de Phasmophobia, videojuego donde atrapan fantasmas",
-  "url": "https://youtu.be/cmASKLvCJ2I"
+    "Desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas facilis accusamus eum culpa repudiandae aliquam vel quae, impedit, tempore ullam cumque reiciendis veniam, cupiditate quasi saepe modi? Accusantium corrupti excepturi quas quae fugit neque nesciunt quia ullam deserunt, praesentium voluptates distinctio, adipisci itaque, pariatur quisquam sed asperiores veniam provident voluptate!",
+  "url": "https://www.youtube.com/embed/cmASKLvCJ2I"
   }
 }';
 
-if($_POST('user')){
     echo $jsonText;
-}else{
-    echo "no ha ingresado los datos";
-}
 
 ?>

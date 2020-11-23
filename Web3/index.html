@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RafaMicrowebsite</title>
     <script src="https://kit.fontawesome.com/280ca38eec.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
@@ -25,10 +25,18 @@
             </div>
         </div>
 
-        <div class="modalVideo">
-            <div class="modalVideo-Titulo"></div>
-            <div class="modalVideo-Descripcion"></div>
-            <div class="modalVideo-Video"></div>
+        <div class="modalVideo" id="modalVideo">
+            <div class="modalVideo-Content" id="modalContent">
+                <div class="modalVideo-Content-Titulo" id="modalVideo-Titulo">titulovideo</div>
+                <div class="modalVideo-Content-Descripcion" id="modalVideo-Descripcion">descripcionvideo</div>
+                <div class="modalVideo-Content-Video" id="modalVideo-Video">
+                    <iframe class="modalVideo-Content-Video-Iframe" id="modalVideo-Iframe" width="100%" height="100%"
+                        src="" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
         </div>
 
         <div class="info-wrapper">
@@ -51,7 +59,6 @@
         </div>
 
     </div>
-
 </body>
 <script src="DataSetter.js"></script>
 
