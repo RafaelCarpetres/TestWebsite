@@ -9,6 +9,7 @@
     <link type="text/css" rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/sectionbs/jquery/2.2.2/jquery.min.js"></script>
 </head>
 
 <body>
@@ -30,31 +31,65 @@
                 <div class="modalvideo-close" id="modalvideo_close">&times;</div>
                 <div class="modalVideo-Content-Titulo" id="modalVideo-Titulo">titulovideo</div>
                 <div class="modalVideo-Content-Descripcion" id="modalVideo-Descripcion">descripcionvideo</div>
-                <div class="modalVideo-Content-Video" id="modalVideo-Video">
-                    <iframe class="modalVideo-Content-Video-Iframe" id="modalVideo-Iframe" width="100%" height="100%"
-                        src="" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
+                <div id="modalVideo-Content-BackVideo">
+
+                    <div class="modalVideo-Content-Video" id="modalVideo-Video">
+                        <div id="slider">
+                            <section>
+                                <iframe class="modalVideo-Content-Video-Iframe" id="modalVideo-Iframe" width="100%"
+                                    height="100%" src="" frameborder="0"
+                                    allow="accelerometer; autoplay; csectionpboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </section>
+                            <section>
+                                <iframe class="modalVideo-Content-Video-Iframe" id="modalVideo-Iframe" width="100%"
+                                    height="100%" src="" frameborder="0"
+                                    allow="accelerometer; autoplay; csectionpboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </section>
+                            <section>
+                                <iframe class="modalVideo-Content-Video-Iframe" id="modalVideo-Iframe" width="100%"
+                                    height="100%" src="" frameborder="0"
+                                    allow="accelerometer; autoplay; csectionpboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </section>
+                            <section>
+                                <iframe class="modalVideo-Content-Video-Iframe" id="modalVideo-Iframe" width="100%"
+                                    height="100%" src="" frameborder="0"
+                                    allow="accelerometer; autoplay; csectionpboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div id="container-btn">
+
+                    <div id="btn-prev">&#60;</div>
+                    <div id="btn-next">&#62;</div>
                 </div>
             </div>
         </div>
 
         <div class="info-wrapper">
             <ul class="cuadricula" id="twitch">
-                <li><i class="fab fa-twitch"></i><span id="tituloVideo">
+                <section><i class="fab fa-twitch"></i><span id="tituloVideo">
                         blablabla
                     </span>
-                </li>
-                <li><button class="cuadricula-btn" id="visualizadorVideo">Ver ultimo video</button></li>
+                </section>
+                <section><button class="cuadricula-btn" id="visualizadorVideo">Ver ultimo video</button>
+                </section>
             </ul>
             <ul class="cuadricula" id="youtube">
-                <li><i class="fab fa-youtube"></i></li>
-                <li><button class="cuadricula-btn">Ver ultimo video</button></li>
+                <section><i class="fab fa-youtube"></i></section>
+                <section><button class="cuadricula-btn">Ver ultimo video</button></section>
             </ul>
             <ul class="cuadricula" id="instagram">
-                <li><i class="fab fa-instagram"></i></li>
-                <li><button class="cuadricula-btn">Ver ultimo video</button></li>
+                <section><i class="fab fa-instagram"></i></section>
+                <section><button class="cuadricula-btn">Ver ultimo video</button></section>
 
             </ul>
         </div>

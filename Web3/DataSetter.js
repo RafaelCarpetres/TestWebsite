@@ -1,5 +1,5 @@
 var wsURL = "./receiver.php";
-
+var responseVideoData;
 var btna = document.getElementById("visualizadorVideo");
 var btnCerrarModal = document.getElementById("modalvideo_close");
 btna.onclick = function () {
@@ -23,6 +23,10 @@ function CerrarModalVideo() {
     let el = document.getElementById("modalVideo").style.display = "none";
 }
 
+function AbrirModalVideo() {
+    let el = document.getElementById("modalVideo").style.display = "block";
+}
+
 function CambiarTitulo(titulo) {
     let el = document.getElementById("modalVideo-Titulo");
     el.innerHTML = titulo;
@@ -33,10 +37,19 @@ function CambiarDescripcion(Desc) {
     el.innerHTML = Desc;
 }
 
-function CambiarVideoAframe(urlvideo) {
+function CambiarVideoIframe(urlvideo) {
     let el = document.getElementById("modalVideo-Iframe");
     el.setAttribute('src', urlvideo);
 }
+
+function InsertarVideosIFrame(response) {
+    let el = document.getElementsByClassName("modalVideo-Content-Video-Iframe");
+    for (let i = 0; i < response.length; i++) {
+        el[i].setAttribute('src', response[i].url)
+    }
+    AbrirModalVideo();
+}
+
 /*
 < iframe width = "560"
 height = "315"
@@ -45,13 +58,20 @@ frameborder = "0"
 allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen > < /iframe>
 */
-
 function InsertarVideoData(titulo, descripcion, url) {
     let el = document.getElementById("modalVideo");
     CambiarTitulo(titulo);
     CambiarDescripcion(descripcion);
-    CambiarVideoAframe(url);
-    el.style.display = "block";
+    CambiarVideoIframe(url);
+    AbrirModalVideo();
+}
+
+function InsertarVideoData(ele, titulo, descripcion, url) {
+    let el = ele;
+    CambiarTitulo(titulo);
+    CambiarDescripcion(descripcion);
+    CambiarVideoIframe(url);
+    AbrirModalVideo();
 }
 
 function BuscaVideo() {
@@ -62,9 +82,20 @@ function BuscaVideo() {
         if (this.readyState == 4 & this.status == 200) {
             let responseJSON = JSON.parse(this.responseText);
             let response = responseJSON.data;
+            responseVideoData = response;
             console.log(response);
-            InsertarVideoData(response.Titulo, response.Desc, response.url);
+            InsertarVideosIFrame(response);
+            //InsertarVideoData(response.Titulo, response.Desc, response.url);
             //CambiarTitulo(this.responseText);
         }
     }
 }
+
+/* TRANSICIONESSSSSSSS */
+
+var slider = $('#slider');
+//botoncitos
+var siguiente = $('#btn-next');
+var anterior = $('#btn-prev');
+
+$('#slider section:last').insertBefore()
