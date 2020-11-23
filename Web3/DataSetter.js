@@ -1,10 +1,26 @@
 var wsURL = "./receiver.php";
 
 var btna = document.getElementById("visualizadorVideo");
-
+var btnCerrarModal = document.getElementById("modalvideo_close");
 btna.onclick = function () {
     // CambiarTitulo("Soy el titulo");
     BuscaVideo();
+}
+
+btnCerrarModal.onclick = function () {
+    CerrarModalVideo();
+}
+
+window.onclick = function (event) {
+    let modal = document.getElementById("modalVideo");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+function CerrarModalVideo() {
+    let el = document.getElementById("modalVideo").style.display = "none";
 }
 
 function CambiarTitulo(titulo) {

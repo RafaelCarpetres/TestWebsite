@@ -65,16 +65,35 @@ li {
 .modalVideo-Content {
   padding: 10px;
   background-color: white;
-  position: initial;
+  position: relative;
   margin: 10em 1em;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
 }
 
+.modalvideo-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 15px;
+  height: 15px;
+  /*
+  background-color: orange;
+  */
+  text-align: center;
+  cursor: pointer;
+}
+
+.modalvideo-close:hover {
+  color: red;
+}
+
 .modalVideo-Content-Titulo {
   background-color: cyan;
   font-size: 30px;
+  padding: 15px;
+  margin-top: 20px;
 }
 
 .modalVideo-Content-Video {
