@@ -116,7 +116,9 @@ li {
   width: 2400px;
   height: 400px;
   padding: 0;
+  /*
   animation: cambio 20s infinite;
+  */
 }
 
 .modalVideo-Content-Video section {
@@ -209,10 +211,6 @@ li {
     flex-direction: column;
     align-items: center;
   }
-
-  .modalVideo {}
-
-  .modalVideo-Content {}
 
   .modalVideo-Content-Titulo {
     font-size: 20px;

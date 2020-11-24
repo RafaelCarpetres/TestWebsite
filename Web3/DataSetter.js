@@ -97,5 +97,57 @@ var slider = $('#slider');
 //botoncitos
 var siguiente = $('#btn-next');
 var anterior = $('#btn-prev');
+var moviendose = false;
+//$('#slider section:last').insertBefore('#slider section:first');
 
-$('#slider section:last').insertBefore()
+slider.css('margin-left', '-' + 100 + '%')
+
+function moverD() {
+    if (!moviendose) {
+        moviendose = true;
+        var marginLeftValue = parseInt(slider.css('margin-left'), 10)
+        //console.log(marginLeftValue + " antes");
+        if (marginLeftValue == -1800) {
+            marginLeftValue = 0;
+        } else {
+            marginLeftValue -= 600;
+        }
+        //console.log(marginLeftValue + " despues");
+        slider.animate({
+                marginLeft: marginLeftValue + 'px'
+            },
+            700,
+            function () {
+                moviendose = false;
+            });
+    }
+}
+
+function moverI() {
+    if (!moviendose) {
+        moviendose = true;
+        var marginLeftValue = parseInt(slider.css('margin-left'), 10)
+        //console.log(marginLeftValue + " antes");
+        if (marginLeftValue == 0) {
+            marginLeftValue = -1800;
+        } else {
+            marginLeftValue += 600;
+        }
+        //console.log(marginLeftValue + " despues");
+        slider.animate({
+                marginLeft: marginLeftValue + 'px'
+            },
+            700,
+            function () {
+                moviendose = false;
+            });
+    }
+}
+
+siguiente.on('click', function () {
+    moverD();
+});
+
+anterior.on('click', function () {
+    moverI();
+});
