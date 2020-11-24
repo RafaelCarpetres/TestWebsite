@@ -84,6 +84,11 @@ function InsertarVideoData(ele, titulo, descripcion, url) {
     AbrirModalVideo();
 }
 
+function CambiarDataModal(titulo, descripcion) {
+    CambiarTitulo(titulo);
+    CambiarDescripcion(descripcion);
+}
+
 function BuscaVideo() {
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", wsURL, true);
@@ -122,10 +127,14 @@ var anterior = $('#btn-prev');
 var moviendose = false;
 //$('#slider section:last').insertBefore('#slider section:first');
 
-slider.css('margin-left', '-' + 100 + '%')
+slider.css('margin-left', '-' + 100 + '%');
 
 function CambiadorGradienteFondoVideo() {
     let el = document.getElementById("modalVideo-Content-BackVideo");
+    var colores = ["#1CB5E0", "#000851", "#d53369", "#daae51"];
+    var random1 = Math.floor(Math.random() * colores.length);
+    var random2 = Math.floor(Math.random() * colores.length);
+    el.style.background = "linear-gradient(90deg, " + colores[random1] + " 0%, " + colores[random2] + " 100%)";
 }
 
 function moverD() {
@@ -148,7 +157,8 @@ function moverD() {
             700,
             function () {
                 moviendose = false;
-                console.log(indexVideoActual);
+                CambiarDataModal(responseVideoData[indexVideoActual].Titulo, responseVideoData[indexVideoActual].Desc)
+                CambiadorGradienteFondoVideo();
             });
     }
 }
@@ -173,6 +183,8 @@ function moverI() {
             700,
             function () {
                 moviendose = false;
+                CambiarDataModal(responseVideoData[indexVideoActual].Titulo, responseVideoData[indexVideoActual].Desc)
+                CambiadorGradienteFondoVideo();
             });
     }
 }
