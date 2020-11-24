@@ -2,8 +2,11 @@ var wsURL = "./receiver.php";
 var responseVideoData;
 var btna = document.getElementById("visualizadorVideo");
 var btnCerrarModal = document.getElementById("modalvideo_close");
+var indexVideoTotal = 0;
+var indexVideoActual = 1;
 btna.onclick = function () {
     // CambiarTitulo("Soy el titulo");
+    //console.log("me clickearon");
     BuscaVideo();
 }
 
@@ -14,13 +17,15 @@ btnCerrarModal.onclick = function () {
 window.onclick = function (event) {
     let modal = document.getElementById("modalVideo");
     if (event.target == modal) {
-        modal.style.display = "none";
+        CerrarModalVideo();
     }
 }
 
 
 function CerrarModalVideo() {
-    let el = document.getElementById("modalVideo").style.display = "none";
+    let el = document.getElementById("modalVideo");
+    el.style.display = "none";
+    DetenerVideoActual();
 }
 
 function AbrirModalVideo() {
@@ -44,12 +49,17 @@ function CambiarVideoIframe(urlvideo) {
 
 function InsertarVideosIFrame(response) {
     let el = document.getElementsByClassName("modalVideo-Content-Video-Iframe");
+    indexVideoTotal = el.length;
     for (let i = 0; i < response.length; i++) {
-        el[i].setAttribute('src', response[i].url)
+        el[i].setAttribute('src', response[i].url + "?enablejsapi=1&version=3&playerapiid=ytplayer")
     }
     AbrirModalVideo();
 }
 
+function DetenerVideo() {
+    let el = document.getElementsByClassName("modalVideo-Content-Video-Iframe");
+    el[indexVideoActual]
+}
 /*
 < iframe width = "560"
 height = "315"
@@ -91,6 +101,18 @@ function BuscaVideo() {
     }
 }
 
+function ReproducirVideoActual() {
+    $('.modalVideo-Content-Video-Iframe')[indexVideoActual].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+}
+
+function DetenerVideoActual() {
+    $('.modalVideo-Content-Video-Iframe')[indexVideoActual].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+}
+
+function PausarVideoActual() {
+    $('.modalVideo-Content-Video-Iframe')[indexVideoActual].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+}
+
 /* TRANSICIONESSSSSSSS */
 
 var slider = $('#slider');
@@ -102,15 +124,22 @@ var moviendose = false;
 
 slider.css('margin-left', '-' + 100 + '%')
 
+function CambiadorGradienteFondoVideo() {
+    let el = document.getElementById("modalVideo-Content-BackVideo");
+}
+
 function moverD() {
+    DetenerVideoActual();
     if (!moviendose) {
         moviendose = true;
         var marginLeftValue = parseInt(slider.css('margin-left'), 10)
         //console.log(marginLeftValue + " antes");
         if (marginLeftValue == -1800) {
             marginLeftValue = 0;
+            indexVideoActual = 0;
         } else {
             marginLeftValue -= 600;
+            indexVideoActual += 1;
         }
         //console.log(marginLeftValue + " despues");
         slider.animate({
@@ -119,19 +148,23 @@ function moverD() {
             700,
             function () {
                 moviendose = false;
+                console.log(indexVideoActual);
             });
     }
 }
 
 function moverI() {
+    DetenerVideoActual();
     if (!moviendose) {
         moviendose = true;
         var marginLeftValue = parseInt(slider.css('margin-left'), 10)
         //console.log(marginLeftValue + " antes");
         if (marginLeftValue == 0) {
             marginLeftValue = -1800;
+            indexVideoActual = indexVideoTotal;
         } else {
             marginLeftValue += 600;
+            indexVideoActual -= 1;
         }
         //console.log(marginLeftValue + " despues");
         slider.animate({
