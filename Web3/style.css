@@ -97,13 +97,12 @@ li {
 }
 
 #modalVideo-Content-BackVideo {
-  padding: 10px 20px;
+  padding: 3%;
   background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
   align-self: center;
 }
 
 .modalVideo-Content-Video {
-  margin-bottom: 20px;
   background: transparent;
   position: relative;
   width: 600px;
@@ -113,8 +112,8 @@ li {
 
 .modalVideo-Content-Video #slider {
   display: flex;
-  width: 2400px;
-  height: 400px;
+  width: 400%;
+  height: 100%;
   padding: 0;
   /*
   animation: cambio 20s infinite;

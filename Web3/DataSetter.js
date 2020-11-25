@@ -53,6 +53,7 @@ function InsertarVideosIFrame(response) {
     for (let i = 0; i < response.length; i++) {
         el[i].setAttribute('src', response[i].url + "?enablejsapi=1&version=3&playerapiid=ytplayer")
     }
+    CambiarDataModal(responseVideoData[1].Titulo, responseVideoData[1].Desc)
     AbrirModalVideo();
 }
 
@@ -119,7 +120,7 @@ function PausarVideoActual() {
 }
 
 /* TRANSICIONESSSSSSSS */
-
+var sliderParent = $('#modalVideo-Video');
 var slider = $('#slider');
 //botoncitos
 var siguiente = $('#btn-next');
@@ -141,16 +142,14 @@ function moverD() {
     DetenerVideoActual();
     if (!moviendose) {
         moviendose = true;
-        var marginLeftValue = parseInt(slider.css('margin-left'), 10)
-        //console.log(marginLeftValue + " antes");
-        if (marginLeftValue == -1800) {
-            marginLeftValue = 0;
+        var widthParentActual = parseInt(sliderParent.css('width'), 10);
+        var marginLeftValue = parseInt(slider.css('margin-left'), 10);
+        if (marginLeftValue <= -widthParentActual * (indexVideoTotal - 1)) {
             indexVideoActual = 0;
         } else {
-            marginLeftValue -= 600;
             indexVideoActual += 1;
         }
-        //console.log(marginLeftValue + " despues");
+        marginLeftValue = -(widthParentActual * indexVideoActual);
         slider.animate({
                 marginLeft: marginLeftValue + 'px'
             },
@@ -167,16 +166,17 @@ function moverI() {
     DetenerVideoActual();
     if (!moviendose) {
         moviendose = true;
-        var marginLeftValue = parseInt(slider.css('margin-left'), 10)
+        var widthParentActual = parseInt(sliderParent.css('width'), 10);
+        var marginLeftValue = parseInt(slider.css('margin-left'), 10);
         //console.log(marginLeftValue + " antes");
-        if (marginLeftValue == 0) {
-            marginLeftValue = -1800;
-            indexVideoActual = indexVideoTotal;
+        if (marginLeftValue >= 0) {
+            indexVideoActual = indexVideoTotal - 1;
+            // console.log(marginLeftValue + " es mayor que " + (-widthParentActual * (indexVideoTotal - 1)));
         } else {
-            marginLeftValue += 600;
             indexVideoActual -= 1;
+            // console.log(marginLeftValue + " es mayor que " + (-widthParentActual * (indexVideoTotal - 1)));
         }
-        //console.log(marginLeftValue + " despues");
+        marginLeftValue = -(widthParentActual * indexVideoActual);
         slider.animate({
                 marginLeft: marginLeftValue + 'px'
             },
