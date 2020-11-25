@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+
+    <title>Cambiador de claves</title>
+</head>
+
+<body>
+
+    <div id="formulario">
+        <h1>Mi cambiador de clave Carpetr3s</h1>
+        <form name="formResetClave" action="" method="post" id="reseteoclave">
+            <div>
+                <label for="rut">RUT usuario</label>
+                <input type="text" name="Rut" id="rut" maxlength="11" required>
+            </div>
+
+            <div>
+                <label for="nuevaclave">Nueva Contraseña</label>
+                <input type="text" name="Clave" id="nuevaclave">
+            </div>
+            <div>
+                <label for="selectorempresa">Seleccionar una empresa</label>
+                <select type="SelectorEmpresas" id="selectorempresa">
+                    <option value="Gasco">Gasco</option>
+                    <option value="Bbosch">Bbosch</option>
+                    <option value="Copec">Copec</option>
+                    <option value="Polpaico">Polpaico</option>
+                </select>
+
+            </div>
+            <input type="submit" value="enviar" id="btnenviar">
+        </form>
+    </div>
+    <script src="admin.js"></script>
+</body>
+
+</html>
